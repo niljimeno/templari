@@ -84,8 +84,7 @@ char *useFuzzyPicker() {
 
     sprintf(
         fzfCommand,
-        "find %s -maxdepth 1 -type d -not -path %s | fzf",
-        templariPath,
+        "ls -1N %s | fzf",
         templariPath
     );
 
@@ -100,10 +99,17 @@ char *useFuzzyPicker() {
 
     pclose(fp);
 
+    if(strcmp(path, "") == 0) {
+        printf("Nothing selected.\n");
+        return "";
+    }
+
     removeTrailingNewLine(path);
     removeTrailingSlash(path);
 
-    return path;
+    char* r = malloc(sizeof(char)*1024);
+    sprintf(r, "%s/%s", templariPath, path);
+    return r;
 }
 
 int displayHelp() {
