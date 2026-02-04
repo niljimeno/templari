@@ -1,6 +1,8 @@
 # Templari
 FZF wrapper for managing templates.
 
+[![asciicast](https://asciinema.org/a/LKZZX3RdvLJ5ZLeD.svg)](https://asciinema.org/a/LKZZX3RdvLJ5ZLeD)
+
 ## Usage
 ```bash
 templari -h # display help
